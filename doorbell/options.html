@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TeddyEngine - Options</title>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+<style>
+      #content {
+    height: 200px;
+    width: 400px;
+	
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+      }
+      #alert {
+        display: none;
+        position: absolute;
+        width: 290px;
+        top: -40px;
+        left: 0;
+      }
+	 body {
+        background-image: url("http://teddyengine.github.io/bg.png");
+		    background-repeat: no-repeat;
+			    background-attachment: fixed;
+}
+    </style>
+  </head>
+  <body>
+   <div id="content">
+      <center><h1>Hello!</h1></center> <br>
+	  <center><h4>Please ring the doorbell to come in.</h4></center>
+       <hr>
+<center>
+<body onload="startTime()">
+<h1><font face="verdana"><div id="txt"></div></font></h1><br><br>
+      <form class="form-inline">
+        <fieldset>
+		<audio id="bflat" src="http://teddyengine.github.io/ring.mp3"></audio>
+<button type="button" class="btn" onclick="document.getElementById('bflat').play()">Ring Doorbell</button>
+        </fieldset>
+      </form>
+	         <hr>
+	<h7> <i>"No man has a good enough memory to be a successful liar."</i> </h7><br><h7>Abraham Lincoln</h7><Br>
+<div align="right">Dev Beta 1 </div>
+     </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="options.js"></script>
+  <script id="table_row_tpl" type="text/x-javascript-tmpl">
+    <tr>
+      <td>{{from}}</td>
+      <td>{{to}}</td>
+      <td>
+        <button class="remove" value="{{id}}"><i class="icon-remove"></i> Delete</button>
+      </td>
+    </tr>
+  </script>
+</html>
